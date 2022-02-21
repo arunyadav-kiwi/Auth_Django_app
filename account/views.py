@@ -5,6 +5,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+
+
+
 def register(request):
     if request.method == 'POST':
         register_form = CustomRegisterForm(request.POST)
