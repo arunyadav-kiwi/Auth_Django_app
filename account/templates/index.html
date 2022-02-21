@@ -1,1 +1,43 @@
-<h>Wellcome to Auth_app</h>
+{% block content %}
+
+{% load static %}
+<!-- Navbar -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static '/css/all.css' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <!-- Lightbox -->
+    <link rel="stylesheet" href="{% static '/css/lightbox.min.css' %}">
+    <title>Auth_app</title>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-3">
+                    <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <form action="{% url 'logout' %}" method="POST" id="logout">
+                        {% csrf_token %}
+                        <input type="hidden">
+                    </form>
+                    <h1>{{ user.first_name }}!</h1>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1>Wellcome to Auth_Django_app</h1>
+{% endblock %}
